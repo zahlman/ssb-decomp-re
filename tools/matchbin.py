@@ -106,7 +106,7 @@ def functionAddressesFromAsmTextFile(asmTextPath):
 		lines = asmTextFile.read().split('\n')
 		for i, line in enumerate(lines[:-1]):
 			if re.match(r"^glabel \w+$", line) is not None:
-				addresses.append(eval("0x" + lines[i + 1][10:18]))
+				addresses.append(int(lines[i + 1][10:18], 16))
 	return addresses
 
 
